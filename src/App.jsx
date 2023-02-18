@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { Provider } from 'react-redux'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import reactLogo from './assets/react.svg'
-import Home from './screens/home.screen'
-import Quiz from './screens/quiz.screen'
-import ScoreAndRecommendations from './screens/scoreandrecom.screen'
+import Home from "./screens/home.screen"
+import Quiz from "./screens/quiz.screen"
+import ScoreAndRecommendations from "./screens/scoreandrecom.screen"
+import store from './store/store'
 
 
 const router = createBrowserRouter([
@@ -21,10 +21,12 @@ const router = createBrowserRouter([
     element: <ScoreAndRecommendations />,
   },
 ])
-function App() {
 
+function App() {
   return (
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   )
 }
 
