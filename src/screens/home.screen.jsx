@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import Container from "../components/Container"
 import LinkButton from '../components/LinkButton'
+import { resetState } from '../store/reducers/quiz.reducer'
 
 function Home() {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(resetState())
+    },[])
     return (
         <Container>
             <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
